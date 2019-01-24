@@ -234,12 +234,14 @@ VENDOR_SECURITY_PATCH := 2018-10-01
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
-include vendor/omni/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy
 
 # Treble
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 PRODUCT_FULL_TREBLE_OVERRIDE := true
+
+# Enable real time lockscreen charging current values
+BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
